@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/currencyListFragment">
+
+    <fragment
+        android:id="@+id/currencyListFragment"
+        android:name="intensive.start.ru.cft.team.cbrf.modules.currency_list.CurrencyListFragment"
+        android:label="fragment_currency_list"
+        tools:layout="@layout/fragment_currency_list" >
+        <action
+            android:id="@+id/action_currencyListFragment_to_convertCurrencyFragment"
+            app:destination="@id/convertCurrencyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/convertCurrencyFragment"
+        android:name="intensive.start.ru.cft.team.cbrf.modules.convert_currency.ConvertCurrencyFragment"
+        android:label="fragment_convert_currency"
+        tools:layout="@layout/fragment_convert_currency" >
+        <argument
+            android:name="currency"
+            app:argType="intensive.start.ru.cft.team.cbrf.core.model.entity.Currency" />
+    </fragment>
+</navigation>

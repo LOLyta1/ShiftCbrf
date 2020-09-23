@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Cbrf</string>
+    <string name="valuteName">Валюта:</string>
+    <string name="valuteChar">Обозначение:</string>
+    <string name="denomination">Номинал:</string>
+    <string name="count">шт</string>
+    <string name="price">Цена</string>
+    <string name="roubleSymbol">₽</string>
+    <string name="roubles">Рубли</string>
+    <string name="convert">Конвертировать</string>
+
+    <string name="convertInto">Конвертировать в:</string>
+    <string name="priceFor">за:</string>
+    <string name="close">Закрыть</string>
+
+    <string name="ensureThanValueIsValid">Убедитесь, что сумма введена корректно!</string>
+</resources>
