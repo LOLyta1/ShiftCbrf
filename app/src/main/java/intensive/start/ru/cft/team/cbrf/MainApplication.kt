@@ -1,6 +1,7 @@
 package intensive.start.ru.cft.team.cbrf
 
 import android.app.Application
+import intensive.start.ru.cft.team.cbrf.database.di.databaseModule
 import intensive.start.ru.cft.team.cbrf.modules.convert_currency.di.currencyConvertModule
 import intensive.start.ru.cft.team.cbrf.modules.currency_list.di.currencyListModule
 import intensive.start.ru.cft.team.cbrf.network.di.networkModule
@@ -13,7 +14,7 @@ class MainApplication:Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MainApplication)
-            modules(networkModule, currencyListModule,currencyConvertModule)
+            modules(networkModule, databaseModule,currencyListModule,currencyConvertModule)
         }
     }
 }

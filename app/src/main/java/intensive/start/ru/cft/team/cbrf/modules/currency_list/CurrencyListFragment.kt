@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import intensive.start.ru.cft.team.cbrf.R
 import intensive.start.ru.cft.team.cbrf.core.model.entity.Currency
-import intensive.start.ru.cft.team.cbrf.network.NetworkStatus
+import intensive.start.ru.cft.team.cbrf.network.DownloadingStatus
 import kotlinx.android.synthetic.main.fragment_currency_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,16 +23,16 @@ class CurrencyListFragment : Fragment(R.layout.fragment_currency_list) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerAdapter()
 
-        swipeRL.setOnRefreshListener { viewModel.getCurrencyList() }
+        swipeRL.setOnRefreshListener { viewModel.reload() }
 
         viewModel.currencyListLiveData.observe(viewLifecycleOwner, Observer {
             when (it) {
-                is NetworkStatus.Loading -> setLoadingState()
-                is NetworkStatus.Successful -> {
+                is DownloadingStatus.Loading -> setLoadingState()
+                is DownloadingStatus.Successful -> {
                     removeLoadingState()
                     adapter?.setList(it.data)
                 }
-                is NetworkStatus.Error -> {
+                is DownloadingStatus.Error -> {
                     removeLoadingState()
                     showError(it.message)
                 }
